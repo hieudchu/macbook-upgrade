@@ -1,19 +1,22 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Upgrade from MacBook Air M2 → MacBook Pro M5</title>
-  <meta name="description" content="A scroll-driven presentation site explaining why upgrading from MacBook Air M2 to MacBook Pro M5 makes sense for heavier dev + 3D workloads." />
+  <title>Request: Upgrade to MacBook Pro M5</title>
+  <meta name="description"
+    content="A concise, persuasive request to upgrade from MacBook Air M2 to MacBook Pro M5 for sustained performance, reliability, and productivity." />
+
   <style>
-    :root{
+    :root {
       --bg: #050507;
-      --panel: rgba(255,255,255,.06);
-      --panel2: rgba(255,255,255,.09);
-      --text: rgba(255,255,255,.88);
-      --muted: rgba(255,255,255,.62);
-      --hair: rgba(255,255,255,.12);
-      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --panel: rgba(255, 255, 255, .06);
+      --panel2: rgba(255, 255, 255, .09);
+      --text: rgba(255, 255, 255, .88);
+      --muted: rgba(255, 255, 255, .62);
+      --hair: rgba(255, 255, 255, .12);
+      --shadow: 0 18px 60px rgba(0, 0, 0, .55);
       --radius: 22px;
       --max: 1120px;
       --accent: 165 100% 60%;
@@ -21,24 +24,39 @@
       --accent3: 35 100% 65%;
     }
 
-    *{ box-sizing: border-box; }
-    html{ scroll-behavior: smooth; }
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1000px 800px at 20% 0%, rgba(80,120,255,.14), transparent 55%),
-                  radial-gradient(900px 700px at 80% 10%, rgba(160,80,255,.12), transparent 60%),
-                  radial-gradient(900px 700px at 55% 90%, rgba(255,170,60,.10), transparent 55%),
-                  var(--bg);
-      color: var(--text);
-      overflow-x:hidden;
+    * {
+      box-sizing: border-box;
     }
 
-    a{ color: inherit; text-decoration: none; }
-    .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 22px; }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background:
+        radial-gradient(1000px 800px at 20% 0%, rgba(80, 120, 255, .14), transparent 55%),
+        radial-gradient(900px 700px at 80% 10%, rgba(160, 80, 255, .12), transparent 60%),
+        radial-gradient(900px 700px at 55% 90%, rgba(255, 170, 60, .10), transparent 55%),
+        var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 22px;
+    }
 
     /* Top nav */
-    .nav{
+    .nav {
       position: fixed;
       top: 12px;
       left: 0;
@@ -46,32 +64,45 @@
       z-index: 50;
       pointer-events: none;
     }
-    .nav .bar{
+
+    .nav .bar {
       pointer-events: auto;
-      display:flex;
-      align-items:center;
+      display: flex;
+      align-items: center;
       justify-content: space-between;
       gap: 14px;
       padding: 12px 14px;
       border: 1px solid var(--hair);
       border-radius: 999px;
-      background: rgba(10,10,14,.55);
+      background: rgba(10, 10, 14, .55);
       backdrop-filter: blur(14px);
-      box-shadow: 0 10px 40px rgba(0,0,0,.45);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, .45);
     }
-    .brand{
-      display:flex; align-items:center; gap:10px;
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-weight: 650;
       letter-spacing: .2px;
       white-space: nowrap;
     }
-    .dot{
-      width:10px; height:10px; border-radius:50%;
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
       background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--accent2)) 60%, hsl(var(--accent3)) 100%);
-      box-shadow: 0 0 18px rgba(120,140,255,.35);
+      box-shadow: 0 0 18px rgba(120, 140, 255, .35);
     }
-    .links{ display:flex; gap: 12px; align-items:center; }
-    .links a{
+
+    .links {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .links a {
       font-size: 13px;
       color: var(--muted);
       padding: 9px 10px;
@@ -79,349 +110,509 @@
       border: 1px solid transparent;
       transition: .25s ease;
     }
-    .links a:hover{
+
+    .links a:hover {
       color: var(--text);
       border-color: var(--hair);
-      background: rgba(255,255,255,.04);
+      background: rgba(255, 255, 255, .04);
     }
-    .cta{
-      display:flex; gap: 10px; align-items:center;
+
+    .cta {
+      display: flex;
+      gap: 10px;
+      align-items: center;
     }
-    .btn{
+
+    .btn {
       border-radius: 999px;
       padding: 10px 12px;
       font-size: 13px;
       border: 1px solid var(--hair);
-      background: rgba(255,255,255,.05);
+      background: rgba(255, 255, 255, .05);
       color: var(--text);
       transition: transform .18s ease, background .25s ease, border-color .25s ease;
       cursor: pointer;
     }
-    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.18); }
-    .btn.primary{
+
+    .btn:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, .08);
+      border-color: rgba(255, 255, 255, .18);
+    }
+
+    .btn.primary {
       border-color: transparent;
       background: linear-gradient(135deg, hsla(var(--accent), .92), hsla(var(--accent2), .88) 60%, hsla(var(--accent3), .86));
       color: #050507;
       font-weight: 700;
-      box-shadow: 0 14px 40px rgba(120,140,255,.18);
+      box-shadow: 0 14px 40px rgba(120, 140, 255, .18);
     }
 
     /* Hero */
-    .hero{
+    .hero {
       position: relative;
       min-height: 92vh;
-      display:flex;
-      align-items:center;
+      display: flex;
+      align-items: center;
       padding-top: 90px;
       padding-bottom: 70px;
     }
-    .hero-grid{
-      display:grid;
+
+    .hero-grid {
+      display: grid;
       grid-template-columns: 1.1fr .9fr;
       gap: 28px;
       align-items: center;
     }
-    @media (max-width: 900px){
-      .hero{ min-height: unset; }
-      .hero-grid{ grid-template-columns: 1fr; }
-      .links{ display:none; }
+
+    @media (max-width: 900px) {
+      .hero {
+        min-height: unset;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .links {
+        display: none;
+      }
     }
 
-    .kicker{
-      display:inline-flex; gap: 10px; align-items:center;
+    .kicker {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
       color: var(--muted);
       font-size: 13px;
       border: 1px solid var(--hair);
-      background: rgba(255,255,255,.04);
+      background: rgba(255, 255, 255, .04);
       border-radius: 999px;
       padding: 8px 12px;
       width: fit-content;
     }
-    .kicker b{ color: var(--text); font-weight: 700; }
-    h1{
+
+    .kicker b {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    h1 {
       margin: 14px 0 12px;
-      font-size: clamp(36px, 4.8vw, 62px);
+      font-size: clamp(34px, 4.8vw, 60px);
       line-height: 1.02;
       letter-spacing: -0.04em;
     }
-    .subtitle{
+
+    .subtitle {
       font-size: clamp(15px, 1.4vw, 18px);
-      line-height: 1.6;
+      line-height: 1.7;
       color: var(--muted);
-      max-width: 58ch;
+      max-width: 62ch;
     }
 
-    .hero-actions{ margin-top: 18px; display:flex; gap: 10px; flex-wrap: wrap; }
-    .hint{
-      margin-top: 22px;
-      color: rgba(255,255,255,.45);
-      font-size: 12px;
-      display:flex; align-items:center; gap: 10px;
-    }
-    .mouse{
-      width: 18px; height: 28px; border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.22);
-      position: relative;
-      opacity:.9;
-    }
-    .mouse:after{
-      content:"";
-      position:absolute;
-      left: 50%;
-      top: 6px;
-      width: 4px; height: 4px;
-      margin-left: -2px;
-      border-radius: 99px;
-      background: rgba(255,255,255,.55);
-      animation: wheel 1.35s infinite ease;
-    }
-    @keyframes wheel{
-      0%{ transform: translateY(0); opacity:.8; }
-      55%{ transform: translateY(9px); opacity:.2; }
-      100%{ transform: translateY(0); opacity:.8; }
+    .hero-actions {
+      margin-top: 18px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
     /* Product card (parallax image) */
-    .device-card{
+    .device-card {
       position: relative;
       border-radius: var(--radius);
       border: 1px solid var(--hair);
-      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      background: linear-gradient(180deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .03));
       box-shadow: var(--shadow);
-      overflow:hidden;
+      overflow: hidden;
       min-height: 420px;
     }
-    .device-card .glow{
-      position:absolute; inset:-140px -120px auto auto;
-      width: 420px; height: 420px;
-      background: radial-gradient(circle at 30% 30%, rgba(120,140,255,.35), transparent 55%);
+
+    .device-card .glow {
+      position: absolute;
+      inset: -140px -120px auto auto;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle at 30% 30%, rgba(120, 140, 255, .35), transparent 55%);
       filter: blur(10px);
       opacity: .7;
-      pointer-events:none;
+      pointer-events: none;
     }
-    .device-card .glow2{
-      position:absolute; inset:auto auto -200px -200px;
-      width: 520px; height: 520px;
-      background: radial-gradient(circle at 50% 50%, rgba(255,170,60,.18), transparent 60%);
+
+    .device-card .glow2 {
+      position: absolute;
+      inset: auto auto -200px -200px;
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle at 50% 50%, rgba(255, 170, 60, .18), transparent 60%);
       filter: blur(14px);
       opacity: .75;
-      pointer-events:none;
+      pointer-events: none;
     }
-    .device-card .label{
-      position:absolute; top: 14px; left: 14px;
-      display:flex; gap: 8px; align-items:center;
-      color: rgba(255,255,255,.70);
+
+    .device-card .label {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      color: rgba(255, 255, 255, .70);
       font-size: 12px;
       padding: 8px 10px;
       border-radius: 999px;
       border: 1px solid var(--hair);
-      background: rgba(0,0,0,.25);
+      background: rgba(0, 0, 0, .25);
       backdrop-filter: blur(10px);
       z-index: 2;
     }
-    .pill{
+
+    .pill {
       padding: 3px 8px;
       border-radius: 999px;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.12);
-      color: rgba(255,255,255,.82);
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .12);
+      color: rgba(255, 255, 255, .82);
       font-weight: 650;
     }
 
-    .device-media{
-      position:absolute;
+    .device-media {
+      position: absolute;
       inset: 0;
-      display:flex;
-      align-items:flex-end;
-      justify-content:center;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
       padding: 34px 22px;
       z-index: 1;
     }
-    .device-media img{
+
+    .device-media img {
       width: min(520px, 92%);
       height: auto;
       transform: translateY(var(--py, 0px)) scale(1.02);
-      filter: drop-shadow(0 22px 60px rgba(0,0,0,.55));
+      filter: drop-shadow(0 22px 60px rgba(0, 0, 0, .55));
       transition: transform .08s linear;
       will-change: transform;
-      user-select:none;
-      -webkit-user-drag:none;
+      user-select: none;
+      -webkit-user-drag: none;
     }
 
     /* Sections */
-    section{ padding: 84px 0; }
-    .section-title{
+    section {
+      padding: 84px 0;
+    }
+
+    .section-title {
       font-size: clamp(22px, 2.4vw, 34px);
       letter-spacing: -0.02em;
       margin: 0 0 12px;
     }
-    .section-sub{
+
+    .section-sub {
       margin: 0 0 26px;
       color: var(--muted);
-      line-height: 1.6;
-      max-width: 78ch;
+      line-height: 1.7;
+      max-width: 86ch;
     }
 
-    .cards{
-      display:grid;
+    .cards {
+      display: grid;
       grid-template-columns: repeat(12, 1fr);
       gap: 14px;
     }
-    .card{
+
+    .card {
       grid-column: span 6;
       border-radius: var(--radius);
       border: 1px solid var(--hair);
-      background: rgba(255,255,255,.05);
-      box-shadow: 0 10px 35px rgba(0,0,0,.35);
-      overflow:hidden;
+      background: rgba(255, 255, 255, .05);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, .35);
+      overflow: hidden;
       position: relative;
     }
-    .card .inner{ padding: 18px 18px 16px; }
-    .card h3{ margin: 0 0 6px; font-size: 16px; letter-spacing: -0.01em; }
-    .card p{ margin: 0; color: var(--muted); line-height: 1.6; font-size: 14px; }
-    .card .tag{
-      display:inline-flex;
+
+    .card .inner {
+      padding: 18px 18px 16px;
+    }
+
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .card .tag {
+      display: inline-flex;
       font-size: 12px;
       padding: 7px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.18);
-      color: rgba(255,255,255,.70);
+      border: 1px solid rgba(255, 255, 255, .14);
+      background: rgba(0, 0, 0, .18);
+      color: rgba(255, 255, 255, .70);
       margin-bottom: 10px;
     }
 
-    @media (max-width: 900px){
-      .card{ grid-column: span 12; }
+    @media (max-width: 900px) {
+      .card {
+        grid-column: span 12;
+      }
     }
 
     /* Sticky comparison */
-    .sticky{
+    .sticky {
       position: relative;
       border-radius: var(--radius);
       border: 1px solid var(--hair);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      overflow:hidden;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .03));
+      overflow: hidden;
       box-shadow: var(--shadow);
     }
-    .sticky-grid{
-      display:grid;
+
+    .sticky-grid {
+      display: grid;
       grid-template-columns: .95fr 1.05fr;
       gap: 18px;
       padding: 18px;
       align-items: stretch;
     }
-    @media (max-width: 900px){
-      .sticky-grid{ grid-template-columns: 1fr; }
+
+    @media (max-width: 900px) {
+      .sticky-grid {
+        grid-template-columns: 1fr;
+      }
     }
-    .sticky-left{
+
+    .sticky-left {
       position: relative;
       min-height: 420px;
       border-radius: calc(var(--radius) - 6px);
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.18);
-      overflow:hidden;
+      border: 1px solid rgba(255, 255, 255, .10);
+      background: rgba(0, 0, 0, .18);
+      overflow: hidden;
     }
-    .sticky-left .bg{
-      position:absolute; inset:0;
+
+    .sticky-left .bg {
+      position: absolute;
+      inset: 0;
       background:
-        radial-gradient(700px 420px at 30% 20%, rgba(120,140,255,.22), transparent 60%),
-        radial-gradient(680px 380px at 80% 70%, rgba(255,170,60,.12), transparent 62%);
+        radial-gradient(700px 420px at 30% 20%, rgba(120, 140, 255, .22), transparent 60%),
+        radial-gradient(680px 380px at 80% 70%, rgba(255, 170, 60, .12), transparent 62%);
       opacity: .95;
-      pointer-events:none;
+      pointer-events: none;
     }
-    .sticky-left .imgwrap{
-      position:absolute; inset:0;
-      display:flex;
-      align-items:flex-end;
-      justify-content:center;
-      padding: 22px;
+
+    /* Dual device layout */
+    .dual {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 34px;
+      padding: 30px;
     }
-    .sticky-left img{
-      width: min(520px, 96%);
-      height:auto;
-      transform: translateY(var(--spy, 0px));
-      will-change: transform;
-      filter: drop-shadow(0 22px 60px rgba(0,0,0,.55));
-      user-select:none;
-      -webkit-user-drag:none;
+
+    .device {
+      width: min(480px, 95%);
+      height: auto;
+      filter: drop-shadow(0 25px 60px rgba(0, 0, 0, .6));
+      transition: transform .6s ease;
+      user-select: none;
+      -webkit-user-drag: none;
     }
-    .sticky-right{
-      display:flex; flex-direction: column;
+
+    .device.air {
+      transform: scale(0.95);
+      opacity: 0.9;
+    }
+
+    .device.pro {
+      transform: scale(1);
+    }
+
+    .sticky-right {
+      display: flex;
+      flex-direction: column;
       gap: 12px;
     }
 
-    .reason{
+    .reason {
       border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255, 255, 255, .10);
+      background: rgba(255, 255, 255, .04);
       padding: 14px 14px 13px;
     }
-    .reason .top{
-      display:flex; align-items:center; justify-content: space-between; gap:10px;
+
+    .reason .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
       margin-bottom: 6px;
     }
-    .num{
+
+    .num {
       font-size: 12px;
       padding: 6px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.18);
-      color: rgba(255,255,255,.76);
+      border: 1px solid rgba(255, 255, 255, .14);
+      background: rgba(0, 0, 0, .18);
+      color: rgba(255, 255, 255, .76);
       font-weight: 650;
       white-space: nowrap;
     }
-    .reason h4{ margin:0; font-size: 15px; letter-spacing: -0.01em; }
-    .reason p{ margin: 6px 0 0; color: var(--muted); line-height: 1.65; font-size: 14px; }
+
+    .reason h4 {
+      margin: 0;
+      font-size: 15px;
+      letter-spacing: -0.01em;
+    }
+
+    .reason p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    /* Request block */
+    .request {
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, .12);
+      background: rgba(255, 255, 255, .05);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, .35);
+      padding: 18px;
+    }
+
+    .request-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .request-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .metric {
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, .10);
+      background: rgba(0, 0, 0, .16);
+      padding: 14px;
+    }
+
+    .metric .k {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .66);
+      margin-bottom: 6px;
+    }
+
+    .metric .v {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text);
+    }
 
     /* Footer */
-    footer{
+    footer {
       padding: 46px 0 70px;
-      color: rgba(255,255,255,.52);
+      color: rgba(255, 255, 255, .52);
       font-size: 12px;
     }
-    .foot{
-      border-top: 1px solid rgba(255,255,255,.10);
+
+    .foot {
+      border-top: 1px solid rgba(255, 255, 255, .10);
       padding-top: 16px;
-      display:flex;
-      align-items:flex-start;
+      display: flex;
+      align-items: flex-start;
       justify-content: space-between;
       gap: 14px;
       flex-wrap: wrap;
     }
-    .foot b{ color: rgba(255,255,255,.75); }
+
+    .foot b {
+      color: rgba(255, 255, 255, .75);
+    }
 
     /* Scroll reveal */
-    .reveal{
+    .reveal {
       opacity: 0;
       transform: translateY(14px);
       transition: opacity .8s ease, transform .8s ease;
     }
-    .reveal.in{
+
+    .reveal.in {
       opacity: 1;
       transform: translateY(0);
     }
 
     /* Ambient floating blobs */
-    .blob{
-      position:absolute;
+    .blob {
+      position: absolute;
       border-radius: 999px;
       filter: blur(22px);
       opacity: .45;
-      pointer-events:none;
+      pointer-events: none;
       mix-blend-mode: screen;
     }
-    .blob.b1{ width: 280px; height: 280px; left: -80px; top: 120px; background: rgba(120,140,255,.35); }
-    .blob.b2{ width: 240px; height: 240px; right: -60px; top: 220px; background: rgba(180,90,255,.28); }
-    .blob.b3{ width: 320px; height: 320px; left: 40%; bottom: -140px; background: rgba(255,170,60,.18); }
 
-    @media (prefers-reduced-motion: reduce){
-      html{ scroll-behavior: auto; }
-      .reveal{ opacity:1; transform:none; transition:none; }
-      .mouse:after{ animation:none; }
-      .device-media img, .sticky-left img{ transition:none; }
+    .blob.b1 {
+      width: 280px;
+      height: 280px;
+      left: -80px;
+      top: 120px;
+      background: rgba(120, 140, 255, .35);
+    }
+
+    .blob.b2 {
+      width: 240px;
+      height: 240px;
+      right: -60px;
+      top: 220px;
+      background: rgba(180, 90, 255, .28);
+    }
+
+    .blob.b3 {
+      width: 320px;
+      height: 320px;
+      left: 40%;
+      bottom: -140px;
+      background: rgba(255, 170, 60, .18);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .device-media img,
+      .sticky-left img,
+      .device {
+        transition: none;
+        transform: none !important;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <!-- Ambient blobs -->
@@ -435,17 +626,17 @@
       <div class="bar">
         <div class="brand">
           <span class="dot"></span>
-          <span>Upgrade Case</span>
+          <span>MacBook Upgrade Request</span>
         </div>
         <div class="links" aria-label="page sections">
           <a href="#summary">Summary</a>
+          <a href="#impact">Impact</a>
           <a href="#reasons">Reasons</a>
-          <a href="#comparison">Comparison</a>
-          <a href="#decision">Decision</a>
+          <a href="#request">Request</a>
         </div>
         <div class="cta">
-          <a class="btn" href="#reasons">Jump to reasons</a>
-          <a class="btn primary" href="#decision">Make the call</a>
+          <a class="btn" href="#reasons">View reasons</a>
+          <a class="btn primary" href="#request">Approve upgrade</a>
         </div>
       </div>
     </div>
@@ -457,26 +648,22 @@
       <div class="hero-grid">
         <div>
           <div class="kicker reveal">
-            <span class="pill">2026-ready</span>
-            <span><b>Dev + 3D workloads</b> don’t stay lightweight forever.</span>
+            <span class="pill">Proposal</span>
+            <span><b>I’m requesting a MacBook Pro M5</b> to support my current workload.</span>
           </div>
 
           <h1 class="reveal">Upgrade from MacBook Air M2 to MacBook Pro M5</h1>
 
           <p class="subtitle reveal" id="summary">
-            If your current day-to-day now includes <b>3D rendering</b>, <b>screen recording</b>,
-            heavier <b>frontend + backend</b> work, and constant context switching across multiple projects,
-            the MacBook Pro M5 is built to keep performance <b>consistent</b>—not just “fast on paper.”
+            My role now consistently involves <b>full-stack development</b>, <b>extended testing</b>,
+            <b>screen recording</b>, and increasing <b>3D workflows</b>. The MacBook Air M2 can still handle light tasks,
+            but under sustained load it throttles and slows down, which directly impacts delivery speed and quality.
+            A MacBook Pro M5 will help me stay productive, reduce downtime, and deliver work more reliably.
           </p>
 
           <div class="hero-actions reveal">
-            <a class="btn primary" href="#comparison">See the upgrade breakdown</a>
-            <a class="btn" href="#reasons">Reasons (5)</a>
-          </div>
-
-          <div class="hint reveal">
-            <span class="mouse" aria-hidden="true"></span>
-            <span>Scroll for a Samsung/Apple-style story layout.</span>
+            <a class="btn primary" href="#request">Request details</a>
+            <a class="btn" href="#impact">Why now</a>
           </div>
         </div>
 
@@ -485,16 +672,12 @@
           <div class="glow2"></div>
           <div class="label">
             <span class="pill">MacBook Pro</span>
-            <span>M5 • sustained performance</span>
+            <span>M5 • built for sustained workloads</span>
           </div>
           <div class="device-media">
-            <!-- Official Apple image (direct) -->
-            <img
-              id="heroImg"
-              alt="MacBook Pro 14-inch with M5"
-              src="https://cdsassets.apple.com/live/7WUAS350/images/tech-specs/macbook-pro-14-inch-m5.png"
-              loading="eager"
-            />
+            <img id="heroImg" alt="MacBook Pro M5"
+              src="https://cdsassets.apple.com/live/7WUAS350/images/tech-specs/macbook-pro-14-m5.png"
+              loading="eager" />
           </div>
         </div>
 
@@ -502,57 +685,54 @@
     </div>
   </header>
 
-  <!-- Summary Cards -->
-  <section>
+  <!-- Impact -->
+  <section id="impact">
     <div class="wrap">
-      <h2 class="section-title reveal">Summary: why the upgrade makes sense</h2>
+      <h2 class="section-title reveal">Why I’m requesting this now</h2>
       <p class="section-sub reveal">
-        You’re not upgrading because the Air M2 is “bad.”
-        You’re upgrading because your workflow has moved into the zone where
-        <b>thermal headroom</b>, <b>sustained performance</b>, and <b>pro I/O</b> reduce friction every single day.
+        This isn’t a “nice to have” request. My current laptop is becoming a bottleneck during heavy tasks.
+        When the machine overheats or slows down, I lose focus and time—especially during builds, testing cycles,
+        and recording sessions. The upgrade is a practical step to protect delivery timelines and reduce friction day-to-day.
       </p>
 
       <div class="cards">
         <article class="card reveal">
           <div class="inner">
-            <div class="tag">Reality check</div>
-            <h3>Your workload changed</h3>
+            <div class="tag">Productivity</div>
+            <h3>Less downtime during heavy work</h3>
             <p>
-              What used to be “mostly coding” is now “coding + testing + recordings + 3D.”
-              That’s sustained load, not short bursts.
+              I often need to pause or change my workflow when performance drops. A Pro-class machine helps me keep moving,
+              especially on long sessions.
             </p>
           </div>
         </article>
 
         <article class="card reveal">
           <div class="inner">
-            <div class="tag">Outcome</div>
-            <h3>Less waiting, more flow</h3>
+            <div class="tag">Quality</div>
+            <h3>More reliable testing and builds</h3>
             <p>
-              The Pro’s design aims to keep speed stable under pressure—so you spend less time
-              watching spinners, lag, and cooldown breaks.
+              When the system slows down, it increases iteration time and makes debugging harder. Stable performance improves accuracy and confidence.
             </p>
           </div>
         </article>
 
         <article class="card reveal">
           <div class="inner">
-            <div class="tag">Workstyle</div>
-            <h3>Multitasking across companies/projects</h3>
+            <div class="tag">Modern workload</div>
+            <h3>3D + screen recording is now routine</h3>
             <p>
-              Multiple repos, services, builds, containers, IDEs, browser tabs, and meetings.
-              Pro headroom keeps everything responsive even when you pile on context.
+              These tasks are resource-heavy and sustained. The Air can burst, but it struggles to hold performance when the work becomes continuous.
             </p>
           </div>
         </article>
 
         <article class="card reveal">
           <div class="inner">
-            <div class="tag">Longevity</div>
-            <h3>Buy time for the next 2–4 years</h3>
+            <div class="tag">Long-term</div>
+            <h3>Better value over the next 2–4 years</h3>
             <p>
-              With heavier toolchains and AI-assisted workflows getting more demanding,
-              you’re investing in stability—not just benchmark numbers.
+              A Pro machine extends usable life for heavier toolchains and evolving requirements, reducing the likelihood of another upgrade soon.
             </p>
           </div>
         </article>
@@ -560,27 +740,24 @@
     </div>
   </section>
 
-  <!-- Sticky “Reasons” + comparison visual -->
+  <!-- Reasons -->
   <section id="reasons">
     <div class="wrap">
-      <h2 class="section-title reveal">5 reasons you should upgrade</h2>
+      <h2 class="section-title reveal">Reasons to upgrade</h2>
       <p class="section-sub reveal">
-        Below are your original 3 reasons (expanded) + 2 additional reasons that typically matter a lot for
-        senior dev workflows (especially with 3D + recording).
+        These points reflect what I’m experiencing in my daily work and why a MacBook Pro M5 is a better fit than my current MacBook Air M2.
       </p>
 
       <div class="sticky reveal" id="comparison">
         <div class="sticky-grid">
-          <div class="sticky-left" aria-label="MacBook Air M2 image panel">
+          <div class="sticky-left" aria-label="MacBook comparison panel">
             <div class="bg"></div>
-            <div class="imgwrap">
-              <!-- Official Apple image (direct) -->
-              <img
-                id="airImg"
-                alt="MacBook Air with M2"
-                src="https://www.apple.com/newsroom/images/product/mac/standard/Apple-WWDC22-MacBook-Air-hero-220606_big.jpg.large.jpg"
-                loading="lazy"
-              />
+
+            <div class="dual">
+              <img id="airImg" class="device air" alt="MacBook Air M2"
+                src="https://cdsassets.apple.com/live/7WUAS350/images/tech-specs/macbook-air-13-m2.png" loading="lazy" />
+              <img id="proImg" class="device pro" alt="MacBook Pro M5"
+                src="https://cdsassets.apple.com/live/7WUAS350/images/tech-specs/macbook-pro-14-m5.png" loading="lazy" />
             </div>
           </div>
 
@@ -588,69 +765,64 @@
             <div class="reason">
               <div class="top">
                 <div class="num">Reason 01</div>
-                <h4>M2 is “good”—but M5 is built for what you do now</h4>
+                <h4>My workload outgrew the Air M2</h4>
               </div>
               <p>
-                Your MacBook Air M2 was perfect for lighter dev and daily work. But today you’re doing
-                <b>3D rendering</b>, <b>screen recording</b>, and running heavier toolchains.
-                The MacBook Pro M5 gives you newer architecture and stronger headroom for:
-                frequent builds, parallel services, big browser sessions, and multi-repo switching—without
-                turning every day into a resource-management game. :contentReference[oaicite:1]{index=1}
+                I’m now running heavier front-end and back-end workloads in parallel, alongside screen recording and new 3D work.
+                The Air M2 still works, but under sustained load it becomes noticeably slower. A Pro M5 gives me the headroom to
+                build, test, and switch contexts across multiple projects without constant performance compromises.
               </p>
             </div>
 
             <div class="reason">
               <div class="top">
                 <div class="num">Reason 02</div>
-                <h4>Active cooling = sustained performance (no “cool down then continue”)</h4>
+                <h4>Active cooling prevents throttling during long sessions</h4>
               </div>
               <p>
-                The Pro’s fan-based cooling is made for <b>long-running workloads</b>.
-                Instead of spiking hot and throttling, it aims to hold performance longer—
-                which matters when you’re doing extended tests, recording sessions, and running heavy FE+BE tasks.
-                That’s fewer pauses, less lag, and more consistent compile + render cycles.
+                The Air has no fan, so when I’m compiling, running extended tests, and recording, heat builds up and the machine throttles.
+                That’s when I see lag and have to wait for it to cool down. The Pro’s cooling is designed for sustained workloads,
+                which means more consistent speed and fewer interruptions.
               </p>
             </div>
 
             <div class="reason">
               <div class="top">
                 <div class="num">Reason 03</div>
-                <h4>Battery wear is real—and it costs you mobility</h4>
+                <h4>My battery capacity has degraded over time</h4>
               </div>
               <p>
-                After long-term use, battery capacity naturally declines. If your Air M2 no longer holds the same
-                “all day” confidence, the upgrade resets that baseline—especially helpful when you’re switching
-                locations, working in meetings, or traveling and can’t always rely on power.
+                After long-term use, the battery no longer lasts like it used to. This reduces flexibility when I’m away from a charger
+                or moving between meetings and workspaces. A new machine restores reliable battery performance for mobile work.
               </p>
             </div>
 
             <div class="reason">
               <div class="top">
                 <div class="num">Reason 04</div>
-                <h4>Pro display quality helps when you live in code + content</h4>
+                <h4>I need a machine that stays fast during multitasking</h4>
               </div>
               <p>
-                When your day includes coding, reviewing designs, debugging UI states, and checking recordings,
-                a better display is not “luxury”—it’s comfort and accuracy.
-                Higher brightness, smoother motion, and richer color support can reduce eye strain
-                and make fine visual details easier to spot (3D edges, shadows, UI alignment, video frames).
+                My daily setup often includes multiple repos, builds, containers, browser tabs, meetings, and tools running together.
+                When the Air slows down, the overall flow breaks: builds take longer, switching apps becomes sluggish, and small waits add up.
+                The Pro M5 is a better match for this “always-on” multitasking style.
               </p>
             </div>
 
             <div class="reason">
               <div class="top">
                 <div class="num">Reason 05</div>
-                <h4>More ports + better external workflow = less adapter pain</h4>
+                <h4>Better I/O and workspace setup reduces friction</h4>
               </div>
               <p>
-                Real work setups usually mean: external monitor, mic/audio interface, SSD, dongles, charging, sometimes HDMI.
-                Pro machines typically reduce friction here—fewer “where is my adapter?” moments, cleaner desk setup,
-                and smoother transitions between home/office/client setups.
+                I regularly connect external displays, storage, and peripherals. With the Air, adapters and limited ports create setup friction
+                and slow transitions between home/office setups. A Pro configuration typically reduces adapter dependence and makes my workstation
+                more stable and consistent.
               </p>
             </div>
 
             <div class="hero-actions" style="margin-top: 6px;">
-              <a class="btn primary" href="#decision">Decision checklist</a>
+              <a class="btn primary" href="#request">Request details</a>
               <a class="btn" href="#top">Back to top</a>
             </div>
 
@@ -660,70 +832,56 @@
     </div>
   </section>
 
-  <!-- Decision section -->
-  <section id="decision">
+  <!-- Request -->
+  <section id="request">
     <div class="wrap">
-      <h2 class="section-title reveal">Decision checklist</h2>
+      <h2 class="section-title reveal">What I’m asking for</h2>
       <p class="section-sub reveal">
-        If you answer “yes” to most of these, upgrading is likely worth it for you.
+        I’m requesting approval to upgrade to a <b>MacBook Pro M5</b> to support sustained performance needs and reduce downtime.
+        This upgrade directly supports faster iteration, more reliable testing, and smoother delivery for my current responsibilities.
       </p>
 
-      <div class="cards">
-        <article class="card reveal">
-          <div class="inner">
-            <div class="tag">Performance</div>
-            <h3>Do you hit throttling / lag weekly?</h3>
-            <p>Slow builds, stutters during recording, overheating, fans (or lack of fans) becoming your daily blocker.</p>
-          </div>
-        </article>
+      <div class="request reveal">
+        <div class="kicker">
+          <span class="pill">Request</span>
+          <span><b>MacBook Pro M5</b> as my primary development machine</span>
+        </div>
 
-        <article class="card reveal">
-          <div class="inner">
-            <div class="tag">Workload</div>
-            <h3>Is “3D + recording” now normal?</h3>
-            <p>If it’s not occasional anymore, you want sustained performance and thermal headroom.</p>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <div class="inner">
-            <div class="tag">Battery</div>
-            <h3>Has battery confidence dropped?</h3>
-            <p>If you’re constantly hunting for a charger, the upgrade pays back in mobility and focus.</p>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <div class="inner">
-            <div class="tag">Workflow</div>
-            <h3>Are adapters slowing you down?</h3>
-            <p>External displays, SSDs, audio gear—if setup friction is frequent, better I/O helps daily.</p>
-          </div>
-        </article>
-      </div>
-
-      <div style="margin-top: 18px" class="reveal">
-        <div class="sticky" style="padding: 18px;">
-          <div style="display:flex; gap:12px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap;">
-            <div style="max-width: 78ch;">
-              <div class="kicker" style="margin-bottom: 10px;">
-                <span class="pill">Bottom line</span>
-                <span>Upgrade for <b>consistency</b>, not hype.</span>
-              </div>
-              <div style="color: var(--muted); line-height: 1.65; font-size: 14px;">
-                The MacBook Air M2 is a great machine. But your current workload is signaling you need a laptop
-                designed to stay fast under pressure. If overheating, throttling, degraded battery life, and setup friction
-                are already costing you time, the Pro M5 upgrade is a practical productivity move. :contentReference[oaicite:2]{index=2}
-              </div>
+        <div class="request-grid">
+          <div class="metric">
+            <div class="k">Primary drivers</div>
+            <div class="v">
+              Sustained performance under heavy workloads, reduced throttling/lag, improved reliability for testing + recording.
             </div>
-            <div style="display:flex; gap:10px; align-items:center;">
-              <a class="btn" href="#comparison">Review reasons</a>
-              <a class="btn primary" href="#top">Restart story</a>
+          </div>
+
+          <div class="metric">
+            <div class="k">Expected outcome</div>
+            <div class="v">
+              Faster builds and tests, fewer interruptions from overheating, smoother multitasking across projects, more consistent delivery.
+            </div>
+          </div>
+
+          <div class="metric">
+            <div class="k">Workloads impacted</div>
+            <div class="v">
+              Full-stack development (FE/BE), extended test runs, screen recording, and 3D rendering workflows.
+            </div>
+          </div>
+
+          <div class="metric">
+            <div class="k">Why now</div>
+            <div class="v">
+              The current Air M2 is becoming a recurring bottleneck in my day-to-day work; waiting for cooldowns and slowdowns is costing time.
             </div>
           </div>
         </div>
-      </div>
 
+        <div class="hero-actions" style="margin-top: 14px;">
+          <a class="btn primary" href="#top">Review summary</a>
+          <a class="btn" href="#reasons">Review reasons</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -731,12 +889,10 @@
     <div class="wrap">
       <div class="foot">
         <div>
-          <div><b>Note</b>: Images used here are from Apple’s official pages.</div>
-          <div style="margin-top:6px;">If you want a “more Samsung-like” look (bolder colors + bigger motion), tell me and I’ll tweak the theme and transitions.</div>
+          <div><b>Images</b>: sourced from Apple product/tech-spec image assets.</div>
         </div>
         <div>
-          <div><b>Local-only</b>: No backend. Just open the HTML file.</div>
-          <div style="margin-top:6px;">Tip: Put it on GitHub Pages / Netlify for quick sharing.</div>
+          <div><b>Format</b>: simple static site (no backend).</div>
         </div>
       </div>
     </div>
@@ -752,36 +908,25 @@
     }, { threshold: 0.12 });
     revealEls.forEach(el => io.observe(el));
 
-    // Lightweight parallax (hero image + sticky image)
+    // Lightweight parallax (hero image only)
     const heroImg = document.getElementById('heroImg');
-    const airImg = document.getElementById('airImg');
-
     let raf = 0;
-    function onScroll(){
+
+    function onScroll() {
       if (raf) return;
       raf = requestAnimationFrame(() => {
         raf = 0;
         const y = window.scrollY || 0;
-
-        // Hero parallax
-        if (heroImg){
+        if (heroImg) {
           const py = Math.max(-18, Math.min(18, (y * -0.02)));
           heroImg.style.setProperty('--py', py + 'px');
         }
-
-        // Sticky image parallax inside its container
-        if (airImg){
-          const rect = airImg.parentElement.getBoundingClientRect();
-          const center = rect.top + rect.height/2;
-          const viewportCenter = window.innerHeight/2;
-          const delta = (center - viewportCenter);
-          const spy = Math.max(-16, Math.min(16, delta * -0.03));
-          airImg.style.setProperty('--spy', spy + 'px');
-        }
       });
     }
+
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   </script>
 </body>
+
 </html>
