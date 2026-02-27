@@ -448,13 +448,12 @@
     /* Each half centers its own image + caption */
     .apple-compare .slot {
       width: 100%;
-      height: 100%;
-      display: grid;
-      grid-template-rows: 1fr auto;
-      /* image area + caption */
-      align-items: end;
-      justify-items: center;
-      gap: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      /* small spacing between image and caption */
     }
 
     /* Center image inside the slot visually */
@@ -468,8 +467,8 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      margin-top: -2px;
-      /* pulls caption a bit closer */
+      margin-top: -4px;
+      /* pulls caption closer to laptop */
     }
 
     /* Tighten the pill spacing (Apple-ish) */
@@ -914,124 +913,112 @@
         <div class="sticky-grid">
           <div class="sticky-left apple-compare" aria-label="MacBook comparison panel">
             <div class="bg"></div>
+            <div class="compare-stage">
+              <div class="compare-line top" aria-hidden="true"></div>
 
-            <div class="compare-frame">
-              <div class="compare-cap top">
-                <span class="cap-pill">MacBook Air</span>
-                <span class="cap-model">M2</span>
-              </div>
-
-              <div class="compare-stage">
-                <div class="compare-line top" aria-hidden="true"></div>
-
-                <div class="slot top">
-                  <img id="airImg" class="compare-device air" alt="MacBook Air M2"
-                    src="images/macbook-air-m2-colors.png" loading="lazy" />
-                  <div class="cap-inline">
-                    <span class="cap-pill">MacBook Air</span>
-                    <span class="cap-model">M2</span>
-                  </div>
+              <div class="slot top">
+                <img id="airImg" class="compare-device air" alt="MacBook Air M2" src="images/macbook-air-m2-colors.png"
+                  loading="lazy" />
+                <div class="cap-inline">
+                  <span class="cap-pill">MacBook Air</span>
+                  <span class="cap-model">M2</span>
                 </div>
+              </div>
 
-                <div class="compare-vs" aria-hidden="true"><span>VS</span></div>
+              <div class="compare-vs" aria-hidden="true"><span>VS</span></div>
 
-                <div class="slot bottom">
-                  <img id="proImg" class="compare-device pro" alt="MacBook Pro M5"
-                    src="images/macbook-pro-14in-m5-colors.png" loading="lazy" />
-                  <div class="cap-inline">
-                    <span class="cap-pill">MacBook Pro</span>
-                    <span class="cap-model">M5</span>
-                  </div>
+              <div class="slot bottom">
+                <img id="proImg" class="compare-device pro" alt="MacBook Pro M5"
+                  src="images/macbook-pro-14in-m5-colors.png" loading="lazy" />
+                <div class="cap-inline">
+                  <span class="cap-pill">MacBook Pro</span>
+                  <span class="cap-model">M5</span>
                 </div>
-
-                <div class="compare-line bottom" aria-hidden="true"></div>
               </div>
 
-              <div class="compare-cap bottom">
-                <span class="cap-pill">MacBook Pro</span>
-                <span class="cap-model">M5</span>
-              </div>
+              <div class="compare-line bottom" aria-hidden="true"></div>
             </div>
-          </div>
-
-          <div class="sticky-right">
-            <div class="reason">
-              <div class="top">
-                <div class="num">Reason 01</div>
-                <h4>My workload outgrew the Air M2</h4>
-              </div>
-              <p>
-                I’m now running heavier front-end and back-end workloads in parallel, alongside screen recording and new
-                3D work.
-                The Air M2 still works, but under sustained load it becomes noticeably slower. A Pro M5 gives me the
-                headroom to
-                build, test, and switch contexts across multiple projects without constant performance compromises.
-              </p>
-            </div>
-
-            <div class="reason">
-              <div class="top">
-                <div class="num">Reason 02</div>
-                <h4>Active cooling prevents throttling during long sessions</h4>
-              </div>
-              <p>
-                The Air has no fan, so when I’m compiling, running extended tests, and recording, heat builds up and the
-                machine throttles.
-                That’s when I see lag and have to wait for it to cool down. The Pro’s cooling is designed for sustained
-                workloads,
-                which means more consistent speed and fewer interruptions.
-              </p>
-            </div>
-
-            <div class="reason">
-              <div class="top">
-                <div class="num">Reason 03</div>
-                <h4>My battery capacity has degraded over time</h4>
-              </div>
-              <p>
-                After long-term use, the battery no longer lasts like it used to. This reduces flexibility when I’m away
-                from a charger
-                or moving between meetings and workspaces. A new machine restores reliable battery performance for
-                mobile work.
-              </p>
-            </div>
-
-            <div class="reason">
-              <div class="top">
-                <div class="num">Reason 04</div>
-                <h4>I need a machine that stays fast during multitasking</h4>
-              </div>
-              <p>
-                My daily setup often includes multiple repos, builds, containers, browser tabs, meetings, and tools
-                running together.
-                When the Air slows down, the overall flow breaks: builds take longer, switching apps becomes sluggish,
-                and small waits add up.
-                The Pro M5 is a better match for this “always-on” multitasking style.
-              </p>
-            </div>
-
-            <div class="reason">
-              <div class="top">
-                <div class="num">Reason 05</div>
-                <h4>Better I/O and workspace setup reduces friction</h4>
-              </div>
-              <p>
-                I regularly connect external displays, storage, and peripherals. With the Air, adapters and limited
-                ports create setup friction
-                and slow transitions between home/office setups. A Pro configuration typically reduces adapter
-                dependence and makes my workstation
-                more stable and consistent.
-              </p>
-            </div>
-
-            <div class="hero-actions" style="margin-top: 6px;">
-              <a class="btn primary" href="#request">Request details</a>
-              <a class="btn" href="#top">Back to top</a>
-            </div>
-
           </div>
         </div>
+
+        <div class="sticky-right">
+          <div class="reason">
+            <div class="top">
+              <div class="num">Reason 01</div>
+              <h4>My workload outgrew the Air M2</h4>
+            </div>
+            <p>
+              I’m now running heavier front-end and back-end workloads in parallel, alongside screen recording and new
+              3D work.
+              The Air M2 still works, but under sustained load it becomes noticeably slower. A Pro M5 gives me the
+              headroom to
+              build, test, and switch contexts across multiple projects without constant performance compromises.
+            </p>
+          </div>
+
+          <div class="reason">
+            <div class="top">
+              <div class="num">Reason 02</div>
+              <h4>Active cooling prevents throttling during long sessions</h4>
+            </div>
+            <p>
+              The Air has no fan, so when I’m compiling, running extended tests, and recording, heat builds up and the
+              machine throttles.
+              That’s when I see lag and have to wait for it to cool down. The Pro’s cooling is designed for sustained
+              workloads,
+              which means more consistent speed and fewer interruptions.
+            </p>
+          </div>
+
+          <div class="reason">
+            <div class="top">
+              <div class="num">Reason 03</div>
+              <h4>My battery capacity has degraded over time</h4>
+            </div>
+            <p>
+              After long-term use, the battery no longer lasts like it used to. This reduces flexibility when I’m away
+              from a charger
+              or moving between meetings and workspaces. A new machine restores reliable battery performance for
+              mobile work.
+            </p>
+          </div>
+
+          <div class="reason">
+            <div class="top">
+              <div class="num">Reason 04</div>
+              <h4>I need a machine that stays fast during multitasking</h4>
+            </div>
+            <p>
+              My daily setup often includes multiple repos, builds, containers, browser tabs, meetings, and tools
+              running together.
+              When the Air slows down, the overall flow breaks: builds take longer, switching apps becomes sluggish,
+              and small waits add up.
+              The Pro M5 is a better match for this “always-on” multitasking style.
+            </p>
+          </div>
+
+          <div class="reason">
+            <div class="top">
+              <div class="num">Reason 05</div>
+              <h4>Better I/O and workspace setup reduces friction</h4>
+            </div>
+            <p>
+              I regularly connect external displays, storage, and peripherals. With the Air, adapters and limited
+              ports create setup friction
+              and slow transitions between home/office setups. A Pro configuration typically reduces adapter
+              dependence and makes my workstation
+              more stable and consistent.
+            </p>
+          </div>
+
+          <div class="hero-actions" style="margin-top: 6px;">
+            <a class="btn primary" href="#request">Request details</a>
+            <a class="btn" href="#top">Back to top</a>
+          </div>
+
+        </div>
       </div>
+    </div>
     </div>
   </section>
 
