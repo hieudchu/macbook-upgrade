@@ -425,49 +425,76 @@
       gap: 14px;
     }
 
+    /* Make stage a clean 3-row layout: top slot, VS, bottom slot */
     .apple-compare .compare-stage {
       position: relative;
       flex: 1;
-      min-height: 360px;
-      display: flex;
-      flex-direction: column;
+      min-height: 380px;
+      display: grid;
+      grid-template-rows: 1fr auto 1fr;
+      /* top / VS / bottom */
       align-items: center;
-      justify-content: center;
-      gap: 18px;
+      justify-items: center;
+      gap: 10px;
+
       border-radius: 18px;
       border: 1px solid rgba(255, 255, 255, .10);
       background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .03));
       box-shadow: 0 16px 55px rgba(0, 0, 0, .35);
       overflow: hidden;
+      padding: 18px 14px;
     }
 
-    .apple-compare .compare-line {
-      position: absolute;
-      left: 14%;
-      right: 14%;
-      height: 1px;
-      background: linear-gradient(90deg,
-          transparent,
-          rgba(255, 255, 255, .18),
-          rgba(255, 255, 255, .10),
-          rgba(255, 255, 255, .18),
-          transparent);
-      opacity: .9;
+    /* Each half centers its own image + caption */
+    .apple-compare .slot {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      /* image area + caption */
+      align-items: end;
+      justify-items: center;
+      gap: 10px;
     }
 
-    .apple-compare .compare-line.top {
-      top: 18px;
+    /* Center image inside the slot visually */
+    .apple-compare .slot img {
+      align-self: center;
     }
 
-    .apple-compare .compare-line.bottom {
-      bottom: 18px;
+    /* Captions directly under each image */
+    .apple-compare .cap-inline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: -2px;
+      /* pulls caption a bit closer */
     }
 
+    /* Tighten the pill spacing (Apple-ish) */
+    .apple-compare .cap-pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      background: rgba(0, 0, 0, .18);
+      backdrop-filter: blur(10px);
+      color: rgba(255, 255, 255, .84);
+      font-weight: 650;
+      font-size: 12px;
+    }
+
+    .apple-compare .cap-model {
+      color: rgba(255, 255, 255, .62);
+      font-weight: 650;
+      font-size: 12px;
+    }
+
+    /* Keep your device look */
     .apple-compare .compare-device {
       width: min(520px, 92%);
       height: auto;
       filter: drop-shadow(0 22px 60px rgba(0, 0, 0, .55));
-      transform: translateZ(0);
       user-select: none;
       -webkit-user-drag: none;
     }
@@ -481,8 +508,31 @@
       transform: scale(1.02);
     }
 
+    /* Lines stay near top/bottom inside stage */
+    .apple-compare .compare-line {
+      position: absolute;
+      left: 12%;
+      right: 12%;
+      height: 1px;
+      background: linear-gradient(90deg,
+          transparent,
+          rgba(255, 255, 255, .18),
+          rgba(255, 255, 255, .10),
+          rgba(255, 255, 255, .18),
+          transparent);
+      opacity: .9;
+    }
+
+    .apple-compare .compare-line.top {
+      top: 14px;
+    }
+
+    .apple-compare .compare-line.bottom {
+      bottom: 14px;
+    }
+
+    /* VS chip stays centered */
     .apple-compare .compare-vs {
-      position: relative;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -499,45 +549,15 @@
       font-size: 12px;
       letter-spacing: .22em;
       padding-left: .22em;
-      /* keep VS visually centered with letter-spacing */
       color: rgba(255, 255, 255, .78);
       font-weight: 700;
     }
 
-    .apple-compare .compare-cap {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      color: rgba(255, 255, 255, .72);
-      font-size: 13px;
-      letter-spacing: -0.01em;
-    }
-
-    .apple-compare .cap-pill {
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, .14);
-      background: rgba(0, 0, 0, .18);
-      backdrop-filter: blur(10px);
-      color: rgba(255, 255, 255, .82);
-      font-weight: 650;
-    }
-
-    .apple-compare .cap-model {
-      color: rgba(255, 255, 255, .60);
-      font-weight: 650;
-    }
-
-    /* Mobile: reduce spacing so it fits nicely */
+    /* Mobile tweak */
     @media (max-width: 900px) {
-      .apple-compare .compare-frame {
-        padding: 14px;
-      }
-
       .apple-compare .compare-stage {
-        min-height: 320px;
-        gap: 14px;
+        min-height: 340px;
+        padding: 16px 12px;
       }
 
       .apple-compare .compare-line {
@@ -904,15 +924,25 @@
               <div class="compare-stage">
                 <div class="compare-line top" aria-hidden="true"></div>
 
-                <img id="airImg" class="compare-device air" alt="MacBook Air M2" src="images/macbook-air-m2-colors.png"
-                  loading="lazy" />
-
-                <div class="compare-vs" aria-hidden="true">
-                  <span>VS</span>
+                <div class="slot top">
+                  <img id="airImg" class="compare-device air" alt="MacBook Air M2"
+                    src="images/macbook-air-m2-colors.png" loading="lazy" />
+                  <div class="cap-inline">
+                    <span class="cap-pill">MacBook Air</span>
+                    <span class="cap-model">M2</span>
+                  </div>
                 </div>
 
-                <img id="proImg" class="compare-device pro" alt="MacBook Pro M5"
-                  src="images/macbook-pro-14in-m5-colors.png" loading="lazy" />
+                <div class="compare-vs" aria-hidden="true"><span>VS</span></div>
+
+                <div class="slot bottom">
+                  <img id="proImg" class="compare-device pro" alt="MacBook Pro M5"
+                    src="images/macbook-pro-14in-m5-colors.png" loading="lazy" />
+                  <div class="cap-inline">
+                    <span class="cap-pill">MacBook Pro</span>
+                    <span class="cap-model">M5</span>
+                  </div>
+                </div>
 
                 <div class="compare-line bottom" aria-hidden="true"></div>
               </div>
