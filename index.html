@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>MacBook Upgrade Request | Hieu Chu</title>
-  <link rel="icon" type="image/png" href="/images/nuoianh.jpeg">
+  <link rel="icon" type="image/png" href="/images/nuoianh2.png">
   <meta name="description"
     content="A concise, persuasive request to upgrade from MacBook Air M2 to MacBook Pro M5 for sustained performance, reliability, and productivity." />
 
@@ -285,21 +285,17 @@
       position: absolute;
       inset: 0;
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       justify-content: center;
-      padding: 34px 22px;
+      padding: 22px;
       z-index: 1;
     }
 
     .device-media img {
       width: min(520px, 92%);
       height: auto;
-      transform: translateY(var(--py, 0px)) scale(1.02);
+      transform: scale(1.02);
       filter: drop-shadow(0 22px 60px rgba(0, 0, 0, .55));
-      transition: transform .08s linear;
-      will-change: transform;
-      user-select: none;
-      -webkit-user-drag: none;
     }
 
     /* Sections */
@@ -411,6 +407,143 @@
         radial-gradient(680px 380px at 80% 70%, rgba(255, 170, 60, .12), transparent 62%);
       opacity: .95;
       pointer-events: none;
+    }
+
+    /* Apple-like comparison panel */
+    .apple-compare {
+      background: rgba(0, 0, 0, .18);
+      overflow: hidden;
+    }
+
+    .apple-compare .compare-frame {
+      position: absolute;
+      inset: 0;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .apple-compare .compare-stage {
+      position: relative;
+      flex: 1;
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, .10);
+      background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .03));
+      box-shadow: 0 16px 55px rgba(0, 0, 0, .35);
+      overflow: hidden;
+    }
+
+    .apple-compare .compare-line {
+      position: absolute;
+      left: 14%;
+      right: 14%;
+      height: 1px;
+      background: linear-gradient(90deg,
+          transparent,
+          rgba(255, 255, 255, .18),
+          rgba(255, 255, 255, .10),
+          rgba(255, 255, 255, .18),
+          transparent);
+      opacity: .9;
+    }
+
+    .apple-compare .compare-line.top {
+      top: 18px;
+    }
+
+    .apple-compare .compare-line.bottom {
+      bottom: 18px;
+    }
+
+    .apple-compare .compare-device {
+      width: min(520px, 92%);
+      height: auto;
+      filter: drop-shadow(0 22px 60px rgba(0, 0, 0, .55));
+      transform: translateZ(0);
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .apple-compare .compare-device.air {
+      opacity: .92;
+      transform: scale(.98);
+    }
+
+    .apple-compare .compare-device.pro {
+      transform: scale(1.02);
+    }
+
+    .apple-compare .compare-vs {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 62px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      background: rgba(0, 0, 0, .22);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, .30);
+    }
+
+    .apple-compare .compare-vs span {
+      font-size: 12px;
+      letter-spacing: .22em;
+      padding-left: .22em;
+      /* keep VS visually centered with letter-spacing */
+      color: rgba(255, 255, 255, .78);
+      font-weight: 700;
+    }
+
+    .apple-compare .compare-cap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: rgba(255, 255, 255, .72);
+      font-size: 13px;
+      letter-spacing: -0.01em;
+    }
+
+    .apple-compare .cap-pill {
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      background: rgba(0, 0, 0, .18);
+      backdrop-filter: blur(10px);
+      color: rgba(255, 255, 255, .82);
+      font-weight: 650;
+    }
+
+    .apple-compare .cap-model {
+      color: rgba(255, 255, 255, .60);
+      font-weight: 650;
+    }
+
+    /* Mobile: reduce spacing so it fits nicely */
+    @media (max-width: 900px) {
+      .apple-compare .compare-frame {
+        padding: 14px;
+      }
+
+      .apple-compare .compare-stage {
+        min-height: 320px;
+        gap: 14px;
+      }
+
+      .apple-compare .compare-line {
+        left: 10%;
+        right: 10%;
+      }
     }
 
     /* Dual device layout */
@@ -759,14 +892,35 @@
 
       <div class="sticky reveal" id="comparison">
         <div class="sticky-grid">
-          <div class="sticky-left" aria-label="MacBook comparison panel">
+          <div class="sticky-left apple-compare" aria-label="MacBook comparison panel">
             <div class="bg"></div>
 
-            <div class="dual">
-              <img id="airImg" class="device air" alt="MacBook Air M2" src="images/macbook-air-m2-colors.png"
-                loading="lazy" />
-              <img id="proImg" class="device pro" alt="MacBook Pro M5" src="images/macbook-pro-14in-m5-colors.png"
-                loading="lazy" />
+            <div class="compare-frame">
+              <div class="compare-cap top">
+                <span class="cap-pill">MacBook Air</span>
+                <span class="cap-model">M2</span>
+              </div>
+
+              <div class="compare-stage">
+                <div class="compare-line top" aria-hidden="true"></div>
+
+                <img id="airImg" class="compare-device air" alt="MacBook Air M2" src="images/macbook-air-m2-colors.png"
+                  loading="lazy" />
+
+                <div class="compare-vs" aria-hidden="true">
+                  <span>VS</span>
+                </div>
+
+                <img id="proImg" class="compare-device pro" alt="MacBook Pro M5"
+                  src="images/macbook-pro-14in-m5-colors.png" loading="lazy" />
+
+                <div class="compare-line bottom" aria-hidden="true"></div>
+              </div>
+
+              <div class="compare-cap bottom">
+                <span class="cap-pill">MacBook Pro</span>
+                <span class="cap-model">M5</span>
+              </div>
             </div>
           </div>
 
@@ -947,6 +1101,26 @@
         }
       });
     }
+
+    const air = document.getElementById('airImg');
+    const pro = document.getElementById('proImg');
+
+    function subtleCompareMotion() {
+      if (!air || !pro) return;
+      const rect = air.closest('.sticky-left')?.getBoundingClientRect();
+      if (!rect) return;
+
+      const center = rect.top + rect.height / 2;
+      const vCenter = window.innerHeight / 2;
+      const delta = (center - vCenter);
+
+      const offset = Math.max(-10, Math.min(10, delta * -0.02));
+      air.style.transform = `translateY(${offset}px) scale(.98)`;
+      pro.style.transform = `translateY(${-offset}px) scale(1.02)`;
+    }
+
+    window.addEventListener('scroll', subtleCompareMotion, { passive: true });
+    subtleCompareMotion();
 
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
