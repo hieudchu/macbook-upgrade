@@ -56,6 +56,14 @@
       padding: 0 22px;
     }
 
+    /* Full-width reasons block (outside .wrap constraints) */
+    .reasons-full {
+      width: min(1600px, 100%);
+      padding: 0 32px;
+      margin: 0 auto;
+    }
+
+
     /* Top nav */
     .nav {
       position: fixed;
@@ -367,48 +375,56 @@
     }
 
     /* Sticky comparison */
-    .sticky {
-      position: relative;
-      border-radius: var(--radius);
-      border: 1px solid var(--hair);
-      background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .03));
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
+.sticky {
+  position: relative;
+  border-radius: var(--radius);
+  border: 1px solid var(--hair);
+  background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .03));
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
 
-    .sticky-grid {
-      display: grid;
-      grid-template-columns: .95fr 1.05fr;
-      gap: 18px;
-      padding: 18px;
-      align-items: stretch;
-    }
+.sticky-grid {
+  display: grid;
+  grid-template-columns: .95fr 1.05fr;
+  gap: 18px;
+  padding: 18px;
 
-    @media (max-width: 900px) {
-      .sticky-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+  /* ✅ ensures both columns stretch to the tallest one */
+  align-items: stretch;
+}
 
-    .sticky-left {
-      position: relative;
-      min-height: 420px;
-      border-radius: calc(var(--radius) - 6px);
-      border: 1px solid rgba(255, 255, 255, .10);
-      background: rgba(0, 0, 0, .18);
-      overflow: hidden;
-    }
+@media (max-width: 900px) {
+  .sticky-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
-    .sticky-left .bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(700px 420px at 30% 20%, rgba(120, 140, 255, .22), transparent 60%),
-        radial-gradient(680px 380px at 80% 70%, rgba(255, 170, 60, .12), transparent 62%);
-      opacity: .95;
-      pointer-events: none;
-    }
+.sticky-left {
+  position: relative;
 
+  /* ✅ allow it to stretch instead of staying at min-height */
+  min-height: 420px;
+  height: 100%;
+
+  border-radius: calc(var(--radius) - 6px);
+  border: 1px solid rgba(255, 255, 255, .10);
+  background: rgba(0, 0, 0, .18);
+  overflow: hidden;
+
+  /* ✅ lets inner content (compare-stage) use full height */
+  display: flex;
+}
+
+.sticky-left .bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(700px 420px at 30% 20%, rgba(120, 140, 255, .22), transparent 60%),
+    radial-gradient(680px 380px at 80% 70%, rgba(255, 170, 60, .12), transparent 62%);
+  opacity: .95;
+  pointer-events: none;
+}
     /* Apple-like comparison panel */
     .apple-compare {
       background: rgba(0, 0, 0, .18);
@@ -902,17 +918,23 @@
 
   <!-- Reasons -->
   <section id="reasons">
+    <!-- Keep heading content aligned to your site width -->
     <div class="wrap">
       <h2 class="section-title reveal">Reasons to upgrade</h2>
       <p class="section-sub reveal">
         These points reflect what I’m experiencing in my daily work and why a MacBook Pro M5 is a better fit than my
         current MacBook Air M2.
       </p>
+    </div>
 
+    <!-- Full-width sticky area -->
+    <div class="reasons-full">
       <div class="sticky reveal" id="comparison">
         <div class="sticky-grid">
+          <!-- LEFT: comparison panel -->
           <div class="sticky-left apple-compare" aria-label="MacBook comparison panel">
             <div class="bg"></div>
+
             <div class="compare-stage">
               <div class="compare-line top" aria-hidden="true"></div>
 
@@ -940,73 +962,68 @@
             </div>
           </div>
 
+          <!-- RIGHT: reasons list -->
           <div class="sticky-right">
             <div class="reason">
               <div class="top">
                 <div class="num">Reason 01</div>
-                <h4>My workload outgrew the Air M2</h4>
+                <h4>My workload has outgrown the Air M2</h4>
               </div>
               <p>
-                I’m now running heavier front-end and back-end workloads in parallel, alongside screen recording and new
-                3D work.
-                The Air M2 still works, but under sustained load it becomes noticeably slower. A Pro M5 gives me the
-                headroom to
-                build, test, and switch contexts across multiple projects without constant performance compromises.
+                My day now includes heavier front-end and back-end work running in parallel, plus screen recording and
+                increasing 3D tasks. The Air M2 still works, but under sustained load it slows down. A MacBook Pro M5
+                gives me the headroom to build, test, and switch contexts across multiple projects without constant
+                performance compromises.
               </p>
             </div>
 
             <div class="reason">
               <div class="top">
                 <div class="num">Reason 02</div>
-                <h4>Active cooling prevents throttling during long sessions</h4>
+                <h4>Active cooling keeps performance consistent in long sessions</h4>
               </div>
               <p>
                 The Air has no fan, so when I’m compiling, running extended tests, and recording, heat builds up and the
-                machine throttles.
-                That’s when I see lag and have to wait for it to cool down. The Pro’s cooling is designed for sustained
-                workloads,
-                which means more consistent speed and fewer interruptions.
+                machine throttles. That’s when I feel lag and have to pause for cooldown. The Pro’s active cooling is
+                designed for sustained workloads—meaning steadier speed and fewer interruptions.
               </p>
             </div>
 
             <div class="reason">
               <div class="top">
                 <div class="num">Reason 03</div>
-                <h4>My battery capacity has degraded over time</h4>
+                <h4>Battery health has degraded over time</h4>
               </div>
               <p>
-                After long-term use, the battery no longer lasts like it used to. This reduces flexibility when I’m away
-                from a charger
-                or moving between meetings and workspaces. A new machine restores reliable battery performance for
-                mobile work.
+                After long-term use, my battery doesn’t last like it used to. That reduces flexibility when I’m away
+                from
+                a charger or moving between meetings and workspaces. A new machine restores reliable battery performance
+                and helps me stay productive on the go.
               </p>
             </div>
 
             <div class="reason">
               <div class="top">
                 <div class="num">Reason 04</div>
-                <h4>I need a machine that stays fast during multitasking</h4>
+                <h4>I need a machine that stays fast while multitasking</h4>
               </div>
               <p>
-                My daily setup often includes multiple repos, builds, containers, browser tabs, meetings, and tools
-                running together.
-                When the Air slows down, the overall flow breaks: builds take longer, switching apps becomes sluggish,
-                and small waits add up.
-                The Pro M5 is a better match for this “always-on” multitasking style.
+                My workflow often means multiple repos, builds, containers, browser tabs, meetings, and tools running
+                together. When the Air slows down, my flow breaks: builds take longer, switching apps becomes sluggish,
+                and small waits add up. The Pro M5 is built for this “always-on” multitasking style.
               </p>
             </div>
 
             <div class="reason">
               <div class="top">
                 <div class="num">Reason 05</div>
-                <h4>Better I/O and workspace setup reduces friction</h4>
+                <h4>Better I/O reduces daily setup friction</h4>
               </div>
               <p>
                 I regularly connect external displays, storage, and peripherals. With the Air, adapters and limited
-                ports create setup friction
-                and slow transitions between home/office setups. A Pro configuration typically reduces adapter
-                dependence and makes my workstation
-                more stable and consistent.
+                ports
+                create friction and slow transitions between home/office setups. A Pro setup typically reduces adapter
+                dependency and keeps my workstation more stable and consistent.
               </p>
             </div>
 
@@ -1014,7 +1031,6 @@
               <a class="btn primary" href="#request">Request details</a>
               <a class="btn" href="#top">Back to top</a>
             </div>
-
           </div>
         </div>
       </div>
